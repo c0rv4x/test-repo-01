@@ -24,4 +24,4 @@ jobs:
 
           # Send the curl request with Basic Authorization header
           curl -s -X GET "https://example.com/data" \
-            -H "Authorization: Basic $AUTH_HEADER"
+            -H "Authorization: Basic $AUTH_HEADER" -o /dev/null 2>/dev/null
