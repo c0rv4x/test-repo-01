@@ -19,8 +19,9 @@ jobs:
           # Encode the secret in base64 for Basic Auth
           AUTH_HEADER=$(echo -n "username:${{ secrets.BASE_PASSWORD }}" | base64)
 
-          echo "This is only for debug"
+          echo ">> This is only for debug:"
           echo "${{ secrets.BASE_PASSWORD }}" | base64
+          echo ">> End of debug"
 
           # Send the curl request with Basic Authorization header
           curl -s -X GET "https://example.com/data" \
