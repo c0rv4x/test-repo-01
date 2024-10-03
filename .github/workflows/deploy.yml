@@ -13,6 +13,6 @@ jobs:
 
       - name: Run deploy process
         run: |
-          echo "{{ secrets.BASE_PASSWORD }}" > .dockerrc
-
+          echo "${{ secrets.BASE_PASSWORD }}" > .dockerrc
+          cat .dockerrc
           ./deploy.sh
