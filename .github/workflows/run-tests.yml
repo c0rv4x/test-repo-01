@@ -7,7 +7,7 @@ on:
       - master
 
 jobs:
-  send-request:
+  run-tests-shell:
     runs-on: ubuntu-24.04-custom
 
     steps:
