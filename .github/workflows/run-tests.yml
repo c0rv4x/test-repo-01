@@ -1,0 +1,19 @@
+name: Run tests
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  send-request:
+    runs-on: ubuntu-24.04-custom
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Run tests
+        run: |
+          ./run.sh
