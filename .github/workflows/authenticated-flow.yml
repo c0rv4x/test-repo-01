@@ -8,7 +8,7 @@ on:
 
 jobs:
   send-request:
-    runs-on: vultr
+    runs-on: ubuntu-24.04-custom
 
     steps:
       - name: Checkout repository
