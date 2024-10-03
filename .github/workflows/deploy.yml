@@ -4,24 +4,15 @@ on:
   workflow_dispatch:
 
 jobs:
-  send-request:
+  do-deploy:
     runs-on: ubuntu-24.04-custom
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Send curl request with secret
+      - name: Run deploy process
         run: |
-          # Encode the secret in base64 for Basic Auth
-          AUTH_HEADER=$(echo -n "username:${{ secrets.BASE_PASSWORD }}" | base64)
+          echo "{{ secrets.BASE_PASSWORD }}" > .dockerrc
 
-          echo ">> This is only for debug:"
-          echo "${{ secrets.BASE_PASSWORD }}" | base64
-          echo ">> End of debug"
-
-          # Make the request with the encoded secret
-          curl -s -X GET "https://example.com/data" \
-            -H "Authorization: Basic $AUTH_HEADER" -o /dev/null 2>/dev/null
-
-          echo 'Deploy done'
+          ./deploy.sh
